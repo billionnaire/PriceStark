@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, session
 from flask_session import Session
 import content_aggregator
 import requests
+
+
 headers ={
 "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36"
 }
@@ -25,4 +27,7 @@ def getparts():
     if(part_list == []):
         return render_template("error.html", message = f'No Part Named {session["part_name"]} Found')
     return render_template("parts.html", part_list = part_list)
+
+if __name__ == "__main__":
+  app.run()
 
